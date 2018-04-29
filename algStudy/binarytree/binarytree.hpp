@@ -18,15 +18,13 @@ private:
     BinaryTree *right;
     
 public:
+    BinaryTree(int init);
     int data;
     void insert(int num);
     void remove(int nnum );
     bool search(int num);
     void output(void);
     int min(void);
-    BinaryTree(int init);
-
-
 };
 
 
