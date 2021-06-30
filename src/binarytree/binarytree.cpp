@@ -13,10 +13,15 @@
 BinaryTree::BinaryTree(int init)
 {
     this->data = init;
+    this->left = NULL;
+    this->right = NULL;
 };
 
 void BinaryTree::insert(int num)
 {
+    // std::cout << "\n---insert\n";
+    // this->output();
+    // std::cout << "\n";
     if( num <= this->data )
     {
         if ( this->left != NULL)
@@ -41,34 +46,61 @@ void BinaryTree::insert(int num)
             this->right = newTree;
         }
     }
+    // this->output();
+    // std::cout << "\n---insert\n";
 };
 
 void BinaryTree::remove(int num)
 {
+    // std::cout << "\n---remove\n";
+    // this->output();
+    // std::cout << "\n";
+    int min = this->min();
+
     if ( num < this->data )
     {
-        this->left->remove( num );
+        if (num == min){
+            if (this->left->data == num){
+                if (this->left->right != NULL){
+                    this->left = this->left->right;
+                }else{
+                    this->left = NULL;
+                }
+            }else{
+                this->left->remove(num);
+            }
+        }else{
+            if (this->left != NULL){
+                this->left->remove( num );
+            }
+        }
     }
     else if ( num > this->data )
     {
-        this->right->remove( num );
-    }
-    else
-    {
-        if ( this->left == NULL && this->right != NULL )
-        {
-            *this = *this->right;
+        if (this->right != NULL){
+            this->right->remove( num );
         }
-        else if ( this->right == NULL && this->left != NULL)
-        {
-            *this = *this->left;
-        }
-        else{
+    }else{
+
+        if (this->right != NULL){
             this->data = this->right->min();
-            this->right->remove(this->data);
+            if (this->right->left != NULL){
+                this->right->left->remove(this->data);
+            }else if (this->right->right != NULL){
+                this->right = this->right->right;
+            }else{
+                this->right = NULL;
+            }
         }
-        
+        else if (this->left != NULL){
+            this->data = this->left->data;
+            this->left->remove(this->data);
+        }else{
+            throw "Cannot remove last element";
+        }
     }
+    // this->output();
+    // std::cout << "\n---remove\n";
 };
 
 bool BinaryTree::search(int num)
@@ -103,7 +135,6 @@ bool BinaryTree::search(int num)
 
 void BinaryTree::output(void)
 {
-
     if ( this->left != NULL )
     {
         std::cout << "(";
@@ -111,7 +142,7 @@ void BinaryTree::output(void)
         std::cout << ")";
 
     }
-    std::cout << this->data;
+    printf("[%d]", this->data);
     if ( this->right != NULL )
     {
         std::cout << "(";
