@@ -14,12 +14,7 @@
 #include <iostream>
 
 
-struct LinkedList
-{
-    std::string key;
-    int value;
-    LinkedList *next;
-};
+#include "../linkedlist/linkedlist.hpp"
 
 
 class HashTable
@@ -39,3 +34,5 @@ public:
     
 };
 #endif /* hashtable_hpp */
+
+
