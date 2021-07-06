@@ -11,8 +11,9 @@ using namespace std;
 
 HashTable::HashTable()
 {
-    this->length = 32;
-    this->buck = new LinkedList *[32]();
+    length = 32;
+    buck = new LinkedList *[32]();
+    entries = 0;
 };
 
 
@@ -22,14 +23,14 @@ unsigned int HashTable::hash(string key)
     for (int i = 0; i < key.length(); i++) {
         hash = hash*31 * key[i] + i;
     }
-    hash = hash % this->length;
+    hash = hash % length;
     return hash;
 }
 
 int HashTable::find(string key)
 {
-    int index = this->hash(key);
-    LinkedList *curr = this->buck[index];
+    int index = hash(key);
+    LinkedList *curr = buck[index];
     while(curr != nullptr)
     {
         if(curr->key == key)
@@ -48,9 +49,9 @@ int HashTable::find(string key)
 void HashTable::output()
 {
     cout << "\nHashTable:\n";
-    for(int i = 0; i < this->length; i++)
+    for(int i = 0; i < length; i++)
     {
-        LinkedList *curr = this->buck[i];
+        LinkedList *curr = buck[i];
         cout << "\t";
         cout << i;
         cout << "\t";
@@ -67,7 +68,7 @@ void HashTable::output()
             cout << curr->next;
             curr = curr->next;
         }
-        cout << this->buck[i];
+        cout << buck[i];
         cout << "\n";
         cout << "\n";
     }
@@ -75,16 +76,16 @@ void HashTable::output()
 
 void HashTable::insert(string key, int value)
 {
-    unsigned int index = this->hash(key);
+    unsigned int index = hash(key);
     cout << index;
-    LinkedList *curr = this->buck[index];
+    LinkedList *curr = buck[index];
     LinkedList *ins = new LinkedList{
         key,
         value,
         NULL,
     };
     if (curr == nullptr){
-        this->buck[index] = ins;
+        buck[index] = ins;
     }
     else
     {
@@ -95,20 +96,22 @@ void HashTable::insert(string key, int value)
         
         curr->next = ins;
     }
+    entries++;
+    if(entries > 3*length) rehash();
 }
 
 
 void HashTable::rehash()
 {
-    this->length = 2 * this->length;
-    LinkedList** old = this->buck;
-    this->buck = new LinkedList* [this->length];
-    for (int i=0; i < this->length; i++)
+    this->length = 2 * length;
+    LinkedList** old = buck;
+    this->buck = new LinkedList* [length];
+    for (int i=0; i < length; i++)
     {
         LinkedList* curr = old[i];
         while(curr != nullptr)
         {
-            this->insert(curr->key, curr->value);
+            insert(curr->key, curr->value);
             curr = curr->next;
         }
     }

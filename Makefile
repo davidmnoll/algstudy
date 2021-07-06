@@ -7,3 +7,5 @@ clean:
 rebuild: clean build
 test: clean build
 	./build/test/testAlgs
+run: clean build
+	./build/src/algStudyMain $(ARGS)
