@@ -6,4 +6,4 @@ clean:
 	rm -rf ./build
 rebuild: clean build
 test: clean build
-	./build/test
+	./build/test/testAlgs
