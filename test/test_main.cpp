@@ -10,6 +10,9 @@
 #include "../src/data_structures/stack/stack.hpp"
 
 
+#include "./data_structures/test_binary_tree.cpp"
+#include "./algorithms/test_dynamic_programming.cpp"
+
 int add( int i, int j ) { return i+j; }
 
 BOOST_AUTO_TEST_CASE( my_test )
