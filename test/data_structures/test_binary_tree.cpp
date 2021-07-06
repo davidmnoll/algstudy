@@ -5,7 +5,7 @@
 
 #endif // boost_test
 
-#include "../src/binarytree/binarytree.hpp"
+#include "../../src/data_structures/binarytree/binarytree.hpp"
 
 BOOST_AUTO_TEST_CASE( binary_tree )
 {

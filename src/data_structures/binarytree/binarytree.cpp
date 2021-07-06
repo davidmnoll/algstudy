@@ -1,5 +1,4 @@
 //
-//  redblacktree.cpp
 //  algStudy
 //
 //  Created by David on 3/27/18.
