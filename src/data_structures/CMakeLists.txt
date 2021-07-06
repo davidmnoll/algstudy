@@ -3,10 +3,15 @@ add_subdirectory(hashtable)
 add_subdirectory(linkedlist)
 add_subdirectory(stack)
 
+set(main_datastructures_source_files 
+    main_datastructures.cpp
+)
 
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/null.cpp "")
+add_library(data_structures ${main_datastructures_source_files})
 
-add_library(data_structures ${CMAKE_CURRENT_BINARY_DIR}/null.cpp)
+# file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/null.cpp "")
+
+# add_library(data_structures ${CMAKE_CURRENT_BINARY_DIR}/null.cpp)
 
 target_link_libraries(data_structures binarytree)
 target_link_libraries(data_structures hashtable)
