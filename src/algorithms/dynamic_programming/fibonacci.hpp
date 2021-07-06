@@ -12,9 +12,12 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include "../../data_structures/hashtable/hashtable.hpp"
+
 
 
 int fibonacci(int x);
+int faster_fibonacci(int x, HashTable h = HashTable());
 
 
 #endif /* fibonacci_hpp */

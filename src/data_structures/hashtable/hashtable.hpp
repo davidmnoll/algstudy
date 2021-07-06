@@ -24,6 +24,7 @@ private:
     LinkedList** buck;
     unsigned int hash(std::string key);
     void rehash();
+    int entries;
 
 public:
     HashTable();

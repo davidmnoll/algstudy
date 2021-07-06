@@ -12,5 +12,7 @@
 BOOST_AUTO_TEST_CASE( fib_test )
 {
     BOOST_REQUIRE( fibonacci(3) == 2 );      
+    BOOST_REQUIRE( faster_fibonacci(3) == 2 );      
+
 }
 

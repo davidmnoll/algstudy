@@ -12,6 +12,8 @@
 #include "data_structures/binarytree/binarytree.hpp"
 #include "data_structures/stack/stack.hpp"
 
+#include "algorithms/dynamic_programming/fibonacci.hpp"
+
 #include "main.hpp"
 
 int main(int argc, const char * argv[])
@@ -20,12 +22,7 @@ int main(int argc, const char * argv[])
     
     for (int i = 0; i < argc; ++i)
     {
-        std::cout << "\nhere\n";
-        std::cout << argv[i];
-        std::cout << "\n";
-        std::cout << "\nhere2\n";
         std::string arg(argv[i]);
-        std::cout << "\nhere3\n";
         if (arg == "binarytree")
         {
             std::cout << "\nhere3.1\n";
@@ -39,6 +36,11 @@ int main(int argc, const char * argv[])
         else if (arg == "stack")
         {
             std::cout << "\nhere3.3\n";
+            return main_stack(argc, argv);
+        }
+        else if (arg == "fib")
+        {
+            std::cout << "\nhere3.4\n";
             return main_stack(argc, argv);
         }else{
             std::cout << "not matched\n";
@@ -104,4 +106,18 @@ int main_stack(int argc, const char * argv[])
     Stack s();
     std::cout << "wow";
     return 0;
+}
+int main_fibonacci(int argc, const char * argv[])
+{
+    std::cout << "start - stack\n";
+    std::cout << fibonacci(2);
+    std::cout << fibonacci(3);
+    std::cout << fibonacci(4);
+    std::cout << fibonacci(5);
+    std::cout << faster_fibonacci(5);
+    std::cout << faster_fibonacci(25);
+    std::cout << faster_fibonacci(50);
+    std::cout << "wow";
+    return 0;
+
 }
