@@ -27,3 +27,18 @@ int faster_fibonacci(int i, HashTable h)
         return new_memo;   
     }
 }
+
+int main_fibonacci(int argc, const char * argv[])
+{
+    std::cout << "start - stack\n";
+    std::cout << fibonacci(2);
+    std::cout << fibonacci(3);
+    std::cout << fibonacci(4);
+    std::cout << fibonacci(5);
+    std::cout << faster_fibonacci(5);
+    std::cout << faster_fibonacci(25);
+    std::cout << faster_fibonacci(50);
+    std::cout << "wow";
+    return 0;
+
+}
