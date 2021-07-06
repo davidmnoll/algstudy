@@ -1,9 +1,6 @@
 
-add_subdirectory(binarytree)
-add_subdirectory(hashtable)
-add_subdirectory(linkedlist)
-add_subdirectory(stack)
-
+add_subdirectory(data_structures)
+add_subdirectory(algorithms)
 
 
 set(main_source_files 
@@ -13,8 +10,6 @@ set(main_source_files
 add_executable( algStudyMain ${main_source_files} )
 
 
-target_link_libraries(algStudyMain binarytree)
-target_link_libraries(algStudyMain hashtable)
-target_link_libraries(algStudyMain stack)
-target_link_libraries(algStudyMain linkedlist)
+target_link_libraries(algStudyMain data_structures)
+target_link_libraries(algStudyMain algorithms)
 

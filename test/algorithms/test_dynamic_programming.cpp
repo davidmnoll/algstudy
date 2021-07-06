@@ -5,9 +5,7 @@
 #include <boost/test/included/unit_test.hpp>
 
 #endif // boost_test
-#include "../src/data_structures/binarytree/binarytree.hpp"
-#include "../src/data_structures/hashtable/hashtable.hpp"
-#include "../src/data_structures/stack/stack.hpp"
+#include "../../src/algorithms/dynamic_programming/fibonacci.hpp"
 
 
 int add( int i, int j ) { return i+j; }

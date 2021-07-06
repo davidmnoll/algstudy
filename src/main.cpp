@@ -8,9 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
-#include "hashtable/hashtable.hpp"
-#include "binarytree/binarytree.hpp"
-#include "stack/stack.hpp"
+#include "data_structures/hashtable/hashtable.hpp"
+#include "data_structures/binarytree/binarytree.hpp"
+#include "data_structures/stack/stack.hpp"
 
 #include "main.hpp"
 
